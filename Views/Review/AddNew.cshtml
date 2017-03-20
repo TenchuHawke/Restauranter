@@ -1,0 +1,36 @@
+ @{ ViewData["Title"] = "Add Review"; }
+<h1>Write a New Review:</h1>
+<div>
+    <ul>
+        @{ foreach(var error in ViewBag.AllErrors) { if(@error.Errors.Count > 0) {
+        <li>
+            <p>@error.Errors[0].ErrorMessage</p>
+        </li>
+        } } }
+    </ul>
+</div>
+<div class="container">
+    <form action="AddReview" method="post">
+        <label for="ReveiwerName">Reviewer Name:</label>
+        <input type="text" name="ReviewerName">
+        <br>
+        <label for="RestarauntName">Restaurant Name:</label>
+        <input type="text" name="RestarauntName">
+        <br>
+        <label for="Content">Review:</label>
+        <input type="text" name="Content">
+        <br>
+        <label for="DateOfVisited">Date Visited:</label>
+        <input type="date" name="DateOfVisit">
+        <br>
+        <labelfor="Stars">Stars: </label>
+            <select name="Stars">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+        </select>
+            <input type="submit" value="Submit" class="btn btn-success">
+    </form>
+</div>

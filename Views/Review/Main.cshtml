@@ -1,0 +1,56 @@
+ @{ ViewData["Title"] = "Review Dashboard"; } @using RESTauranter.Models
+<h1>Our Reviews:</h1>
+<div class="container">
+    <p>
+        <a href="New">Add a new review</a>
+    </p>
+    <table class="col-lg-7">
+        @{ foreach(Review place in ViewBag.AllReviews){
+
+        <tr>
+            <td>
+                <p>Review For:</p>
+            </td>
+            <td>
+                <h3>@place.RestarauntName</h3>
+            </td>
+            <td>
+                @switch(place.Stars) { case 1:
+                <text>
+                <h1>*</h1>
+            </text> break; case 2:
+                <text>
+                <h1>**</h1>
+            </text> break; case 3:
+                <text>
+                <h1>***</h1>
+            </text> break; case 4:
+                <text>
+                <h1>****</h1>
+            </text> break; case 5:
+                <text>
+                <h1>*****</h1>
+            </text> break; default:
+                <text>
+                <h1> </h1>
+            </text> break; }
+            </td>
+        </tr>
+        <tr>
+            <td> Reviewer: @place.ReviewerName,</td>
+            <td> Visited on: @place.DateOfVisit.ToString("MMM dd, yyyy")</td>
+        </tr>
+        <tr>
+            <td colspan="3">
+                <p>
+                    @place.Content
+                </p>
+                <p class="small">
+                    @place.UpdatedAt.ToString("MMM dd, yyyy")
+                </p>
+                <hr>
+            </td>
+        </tr>
+        } }
+    </table>
+</div>

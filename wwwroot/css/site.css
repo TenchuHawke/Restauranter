@@ -1,1 +1,5 @@
 /*Write all of your CSS here*/
+hr {
+    border: 1px solid darkgrey;
+    width: 70%;
+}
