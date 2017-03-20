@@ -24,7 +24,7 @@ namespace RESTauranter.Models {
         public int Helpful { get; set; }
         public int Unhelpful { get; set; }
         [RequiredAttribute]
-        [InThePast]
+        [PastDated]
         public DateTime DateOfVisit { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
