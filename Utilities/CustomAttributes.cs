@@ -12,4 +12,19 @@ namespace RESTauranter {
     }
 }
 
-    public class 
+public class PastDated  : ValidationAttribute {
+        private DateTime CurrentDate;
+
+        public PastDated() {
+            CurrentDate = DateTime.Now;
+        }
+
+        protected override ValidationResult IsValid(object value, ValidationContext validationContext)
+        {
+            DateTime setVal = (DateTime)value;
+            if(setVal < CurrentDate) {
+                return ValidationResult.Success;
+            }
+            return new ValidationResult("Date of visit must be dated for the past!");
+        }
+    }
